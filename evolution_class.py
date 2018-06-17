@@ -1,5 +1,8 @@
 import numpy 
 import random 
+import pygame, sys
+from pygame.locals import *
+
 global diff_mod
 diff_mod =2
 
@@ -9,11 +12,20 @@ def set_diff(diff=1):
         diff_mod = 2
     diff_mod= diff
 
-
 class Character:
     '''Defining the atributes(sp) of the Character
         Global varibles include name, health, mana, stamina,skills'''    
     def __init__(self,n='Bob'):
+        #type, (if(1) -> size, width of shell....)
+        self.dem_info=[1,10,1,1,1]
+        #shape 1=circle, 2=elisboid, 3,poloygon
+        self.shape=1
+        #health, stamina
+        #asdsadas
+        self.attributes = [1,1,1]
+        #strength, elastisty, #bonds, 
+        self.charistics = [1,1,1,1,1,1]
+        self.velocity = [0,0,0]
         self.name =n
         self.health=10
         self.mana=10
@@ -37,6 +49,10 @@ class Character:
         elif mode == 2:
             print("Level:" ,self.level)
             print("Exp:" ,self.expereince)
+    def draw_self(self,screen):
+        if self.dem_info[0] == 1:
+            pygame.draw.circle(screen, [0,0,0],[450,350],self.dem_info[1],self.dem_info[2])
+            
     
     
         
@@ -63,7 +79,22 @@ def Generate_NPC(PC):
     NonPC=NPC(name,level)
     return NonPC
 
-    
+class blob:
+    def __init__():
+        self.name="blob"
+        self.dem_info=[1,10,1,1,1]
+        #health, stamina, .....
+        self.artibutes[1,1,1]
+        #strength, elastisty, #bonds, ......
+        self.charistics[1,1,1,1,1,1]
+        self.velocity[0,0,0]
+        self.position[0,0,0]
+    def gen_new(PC):
+        self.dem_info[1] = PC.dem_info[1]*0.8
+            
+    def draw(self,screen):
+        if self.dem_info[0] == 1:
+            pygame.draw.circle(screen, [0,0,0],[450,350],self.dem_info[1],self.dem_info[2])
 
 def Contact(a,b):
     '''Conact between two Characters(class) determines what will happen'''
